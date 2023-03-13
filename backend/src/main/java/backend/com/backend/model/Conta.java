@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Conta extends Pessoa {
+    @GeneratedValue
     @Id
     private int numeroConta;
 

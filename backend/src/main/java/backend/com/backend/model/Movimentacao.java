@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class Movimentacao extends Pessoa {
+    @Id
     private Conta conta;
     private double valor;
 

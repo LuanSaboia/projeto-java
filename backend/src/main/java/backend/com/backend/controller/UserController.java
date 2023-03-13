@@ -13,7 +13,7 @@ import backend.com.backend.repository.MovimentacaoRepository;
 import backend.com.backend.repository.PessoaRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
@@ -27,21 +27,22 @@ public class UserController {
 
     // Cadastro de Pessoa
     @PostMapping("/pessoa")
-    public ResponseEntity<Pessoa> cadastrarPessoa(@RequestBody Pessoa pessoa) {
-        Pessoa novaPessoa = pessoaRepository.save(pessoa);
-        return new ResponseEntity<>(novaPessoa, HttpStatus.CREATED);
+    String cadastrarPessoa(@RequestBody Pessoa pessoa) {
+        //Pessoa novaPessoa = pessoaRepository.save(pessoa);
+        //return new ResponseEntity<>(novaPessoa, HttpStatus.CREATED);
+        return "teste retorno /api/user/pessoa";
     }
 
     // Cadastro de Conta
     @PostMapping("/conta")
-    public ResponseEntity<Conta> cadastrarConta(@RequestBody Conta conta) {
+    ResponseEntity<Conta> cadastrarConta(@RequestBody Conta conta) {
         Conta novaConta = contaRepository.save(conta);
         return new ResponseEntity<>(novaConta, HttpStatus.CREATED);
     }
 
     // Cadastro de Movimentação
     @PostMapping("/movimentacao")
-    public ResponseEntity<Movimentacao> cadastrarMovimentacao(@RequestBody Movimentacao movimentacao) {
+    ResponseEntity<Movimentacao> cadastrarMovimentacao(@RequestBody Movimentacao movimentacao) {
         Movimentacao novaMovimentacao = movimentacaoRepository.save(movimentacao);
         return new ResponseEntity<>(novaMovimentacao, HttpStatus.CREATED);
     }
